@@ -13,7 +13,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
-	"goji.io"
+	goji "goji.io"
 	"goji.io/pat"
 	"golang.org/x/net/context"
 )
