@@ -100,9 +100,11 @@ func checkToken(csrfToken string) (*Token, error) {
 }
 
 func getStrokePoints(strokeID int64) ([]Point, error) {
-	query := "SELECT `id`, `stroke_id`, `x`, `y` FROM `points` WHERE `stroke_id` = ? ORDER BY `id` ASC"
+	ids := []int64{1, 2, 3, 4}
+	query := "SELECT `id`, `stroke_id`, `x`, `y` FROM `points` WHERE `stroke_id` in (?) ORDER BY `id` ASC"
+	q := sqlx.In(query, ids)
 	ps := []Point{}
-	err := dbx.Select(&ps, query, strokeID)
+	err := dbx.Select(&ps, q, strokeID)
 	if err != nil {
 		return nil, err
 	}
