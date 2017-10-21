@@ -99,7 +99,7 @@ func checkToken(csrfToken string) (*Token, error) {
 	return t, nil
 }
 
-func getStrokePoints(strokeID int64) ([]Point, error) {
+func getStrokePoints(strokeIDs []int64) ([]Point, error) {
 	ids := []int64{1, 2, 3, 4}
 	query := "SELECT `id`, `stroke_id`, `x`, `y` FROM `points` WHERE `stroke_id` in (?) ORDER BY `id` ASC"
 	q, vs, err := sqlx.In(query, ids)
@@ -108,7 +108,7 @@ func getStrokePoints(strokeID int64) ([]Point, error) {
 	}
 
 	ps := []Point{}
-	err = dbx.Select(&ps, q, vs)
+	err = dbx.Select(&ps, q, vs...)
 	if err != nil {
 		return nil, err
 	}
@@ -356,13 +356,30 @@ func getAPIRoomsID(ctx context.Context, w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	// strokes変数も最適化できる
+	strokeIDs := []int64{}
+	// points := []Point{}
+
 	for i, s := range strokes {
-		p, err := getStrokePoints(s.ID)
-		if err != nil {
-			outputError(w, err)
-			return
+		strokeIDs = append(strokeIDs, s.ID)
+		// p, err := getStrokePoints(s.ID)
+		// if err != nil {
+		// 	outputError(w, err)
+		// 	return
+		// }
+		// strokes[i].Points = p
+	}
+
+	points, err := getStrokePoints(strokeIDs)
+
+	for i, s := range strokes {
+		pts := []Point{}
+		for _, p := range points {
+			if s.ID == p.StrokeID {
+				pts = append(pts, p)
+			}
 		}
-		strokes[i].Points = p
+		strokes[i].Points = pts
 	}
 
 	room.Strokes = strokes
