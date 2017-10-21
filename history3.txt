@@ -1,0 +1,558 @@
+    1  ls
+    2  cd webapp/
+    3  ls
+    4  docker-compose up --build
+    5  sudo ln -sf docker-compose-go.yml docker-compose.yml 
+    6  docker-compose up --build
+    7  exit
+    8  go version
+    9  sudo apt install golang-go
+   10  go version
+   11  sudo apt-get purge golang
+   12  sudo apt-get purge golang-go
+   13  sudo add-apt-repository ppa:evarlast/golang1.9
+   14  sudo apt-get purge golang*
+   15  wget https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz
+   16  tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+   17  tar -C /usr/local -xzf go1.9.1.linux-amd64.tar.gz 
+   18  sudo tar -C /usr/local -xzf go1.9.1.linux-amd64.tar.gz 
+   19  mkdir ~/.go
+   20  vim ~/.bash_profile
+   21  sudo update-alternatives --install "/usr/bin/go" "go" "/usr/local/go/bin/go" 0
+   22  sudo update-alternatives --set go /usr/local/go/bin/go
+   23  go version
+   24  cd .go/
+   25  ls
+   26  cd 
+   27  cd webapp/
+   28  ls
+   29  git init
+   30  git add .
+   31  git status
+   32  git commit -m "Initial commit"
+   33  git remote add origin git@github.com:aokabin/isucon6f-mogi-002.git
+   34  git push -u origin master
+   35  ssh-keygen -t rsa
+   36  cat ~/.ssh/id_rsa.pub 
+   37  git push -u origin master
+   38  cd go/
+   39  ls
+   40  go get -d ./...
+   41  glide install
+   42  curl https://glide.sh/get | sh
+   43  source ~/.bash_profile 
+   44  sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
+   45  sudo apt-get install glide
+   46  ls
+   47  glide install
+   48  vim ~/.bash_profile 
+   49  source ~/.bash_profile
+   50  glide install
+   51  $GOPATH/
+   52  vim ~/.bash_profile 
+   53  mv ~/.go/ ~/go
+   54  vim ~/.bash_profile 
+   55  source ~/.bash_profile 
+   56  echo $GPOATH
+   57  echo $GOPATH
+   58  glide install
+   59  go get github.com/Masterminds/glide
+   60  sudo apt help
+   61  sudo apt remove glide
+   62  glide version
+   63  go get github.com/Masterminds/glide
+   64  glide 
+   65  sudo apt-get install glide
+   66  glide version
+   67  glide --help
+   68  glide install
+   69  sudo apt remove glide
+   70  exit
+   71  ls
+   72  cd webapp/
+   73  ls
+   74  less /proc/cpuinfo 
+   75  less /proc/meminfo 
+   76  sudo apt-get install mysql-server
+   77  ls
+   78  vim docker-compose-mysql.yml 
+   79  mysql -u root -p
+   80  cd sql/
+   81  ls
+   82  vim ../docker-compose-mysql.yml 
+   83  ls
+   84  mysql -u root -p < 00_create_database.sql 
+   85  mysql -u root -p
+   86  mysql -u root -p < 01_max_allowed_packet.sql 
+   87  mysql -u root -p < 01_schema.sql 
+   88  gunzip -c 02_initial_data.sql.gz | mysql -u root -p
+   89  cat /proc/meminfo
+   90  top
+   91  htop
+   92  ls
+   93  cd
+   94  ls
+   95  mkdir chair && curl -L https://github.com/Code-Hex/chair/releases/download/v0.0.2/chair_0.0.2_linux_64-bit.tar.gz | tar xz -C chair
+   96  ls
+   97  ls chair/
+   98  ./chair/chair -h
+   99  sudo cp chair/chair /usr/local/bin/chair
+  100  chair -h
+  101  exit
+  102  chair tldr
+  103  chair show help
+  104  chair show nginx-access-log
+  105  sudo apt-get -y install nginx
+  106  sudo chair setup
+  107  ls /usr
+  108  sudo mkdir /usr/bin
+  109  sudo chair setup
+  110  alp 
+  111  exit
+  112  mysql -u root -p
+  113  vim ~/.bash_profile 
+  114  cd webapp/
+  115  ls
+  116  git pull origin master
+  117  git status
+  118  source ~/.bash_profile 
+  119  sudo apt-get install -y nodejs npm
+  120  sudo npm cache clean
+  121  sudo npm install n -g
+  122  sudo n stable
+  123  sudo ln -sf /usr/local/bin/node /usr/bin/node
+  124  node -v
+  125  cd nodejs/
+  126  ls
+  127  NODE_ENV=production npm run build
+  128  sudo NODE_ENV=production npm run build
+  129  cat package.json 
+  130  :q
+  131  ls
+  132  git status
+  133  git log --oneline --graph --all
+  134  vim package.json 
+  135  {   "name": "isucon6-final",;   "version": "1.0.0",;   "description": "Frontend for isucon6 final",;   "main": "server.js",;   "scripts": {;     "start": "./node_modules/.bin/gulp start",;     "dev": "./node_modules/.bin/gulp watch",;     "test": "echo \"Error: no test specified\" && exit 1",;     "webpack": "./node_modules/.bin/webpack",;     "build": "./node_modules/.bin/gulp default";   },;   "private": true,;   "dependencies": {;     "async-props": "^0.3.2",;     "escape-html": "^1.0.3",;     "express": "^4.13.4",;     "http-proxy-middleware": "^0.15.2",;     "isomorphic-fetch": "^2.2.1",;     "material-ui": "^0.15.4",;     "rc-color-picker": "^1.0.0",;     "react": "^15.3.2",;     "react-dom": "^15.3.0",;     "react-router": "^2.4.1",;     "react-tap-event-plugin": "^1.0.0";   },;   "devDependencies": {;     "babel-cli": "^6.10.1",;     "babel-core": "^6.9.1",;     "babel-loader": "^6.2.4",;     "babel-preset-es2015": "^6.9.0",;     "babel-preset-react": "^6.5.0",;     "del": "^2.2.2",;     "eslint": "^2.12.0",;     "eslint-config-airbnb": "^9.0.1",;     "eslint-loader": "^1.3.0",;     "eslint-plugin-import": "^1.8.1",;     "eslint-plugin-jsx-a11y": "^1.4.2",;     "eslint-plugin-react": "^5.1.1",;     "gulp": "^3.9.1",;     "gulp-babel": "^6.1.2",;     "node-dev": "^3.1.3",;     "webpack": "^1.13.1",;     "webpack-stream": "^3.2.0";   }
+  136  sudo NODE_ENV=production npm run build
+  137  ls
+  138  vim package.json 
+  139  sudo npm install glup
+  140  source ~/.bash_profile 
+  141  ls
+  142  cd ./node_modules/glup
+  143  ls
+  144  cd ../../
+  145  sudo NODE_ENV=production npm run build
+  146  ls
+  147  git status
+  148  ls
+  149  vim npm-shrinkwrap.json 
+  150  git diff package.json
+  151  git diff npm-shrinkwrap.json
+  152  git log
+  153  git reset --hard
+  154  ls
+  155  vim package.json 
+  156  git pull origin master
+  157  cd ../
+  158  ls
+  159  cd react/
+  160  ls
+  161  {   "name": "isucon6-final",;   "version": "1.0.0",;   "description": "Frontend for isucon6 final",;   "main": "server.js",;   "scripts": {;     "start": "./node_modules/.bin/gulp start",;     "dev": "./node_modules/.bin/gulp watch",;     "test": "echo \"Error: no test specified\" && exit 1",;     "webpack": "./node_modules/.bin/webpack",;     "build": "./node_modules/.bin/gulp default";   },;   "private": true,;   "dependencies": {;     "async-props": "^0.3.2",;     "escape-html": "^1.0.3",;     "express": "^4.13.4",;     "http-proxy-middleware": "^0.15.2",;     "isomorphic-fetch": "^2.2.1",;     "material-ui": "^0.15.4",;     "rc-color-picker": "^1.0.0",;     "react": "^15.3.2",;     "react-dom": "^15.3.0",;     "react-router": "^2.4.1",;     "react-tap-event-plugin": "^1.0.0";   },;   "devDependencies": {;     "babel-cli": "^6.10.1",;     "babel-core": "^6.9.1",;     "babel-loader": "^6.2.4",;     "babel-preset-es2015": "^6.9.0",;     "babel-preset-react": "^6.5.0",;     "del": "^2.2.2",;     "eslint": "^2.12.0",;     "eslint-config-airbnb": "^9.0.1",;     "eslint-loader": "^1.3.0",;     "eslint-plugin-import": "^1.8.1",;     "eslint-plugin-jsx-a11y": "^1.4.2",;     "eslint-plugin-react": "^5.1.1",;     "gulp": "^3.9.1",;     "gulp-babel": "^6.1.2",;     "node-dev": "^3.1.3",;     "webpack": "^1.13.1",;     "webpack-stream": "^3.2.0";   }
+  162  NODE_ENV=production npm run build
+  163  ls
+  164  npm install && npm cache clean
+  165  sudo npm install && npm cache clean
+  166  sudo npm cache verify
+  167  NODE_ENV=production npm run build
+  168  npm install
+  169  npm cache clean --force
+  170  NODE_ENV=production npm run build
+  171  sudo NODE_ENV=production npm run build
+  172  vim package.json 
+  173  npm install
+  174  sudo NODE_ENV=production npm run build
+  175  npm update
+  176  sudo NODE_ENV=production npm run build
+  177  vim package.json 
+  178  npm install --save loader-utils
+  179  sudo NODE_ENV=production npm run build
+  180  npm install -g
+  181  sudo npm install -g
+  182  npm install
+  183  sudo NODE_ENV=production npm run build
+  184  vim package.json 
+  185  npm install
+  186  npm cache clean --force
+  187  sudo npm cache clean --force
+  188  npm install
+  189  sudo NODE_ENV=production npm run build
+  190  ls
+  191  rm -rf node_modules
+  192  npm install
+  193  ls
+  194  mkdir node_modules
+  195  npm install
+  196  npm cache clean
+  197  NODE_ENV=production npm run build
+  198  git reset --hard
+  199  node install
+  200  ls
+  201  git status
+  202  git log
+  203  git log --oneline --all --graph
+  204  sudo node install
+  205  node install
+  206  npm install
+  207  npm cache clean
+  208  sudo NODE_ENV=production npm run build
+  209  git log
+  210  git checkout a08aeccbf93774b2e0dfcb5a3b71a6efbc3f2217
+  211  git log --oneline --all --graph
+  212  git status
+  213  git reset --hard
+  214  ls
+  215  git status
+  216  npm install && npm cache clean
+  217  NODE_ENV=production npm run build
+  218  n
+  219  vim package.json 
+  220  nodejs --version
+  221  apt help
+  222  sudo apt remove node
+  223  which node
+  224  n list
+  225  nodejs -v
+  226  sudo n 4.2.6
+  227  node -v
+  228  npm install && npm cache clean
+  229  NODE_ENV=production npm run build
+  230  npm install -g glup
+  231  sudo npm install -g glup
+  232  npm i http-server -D
+  233  NODE_ENV=production npm run build
+  234  sudo NODE_ENV=production npm run build
+  235  npm -v
+  236  npm update
+  237  sudo NODE_ENV=production npm run build
+  238  npm uninstall n
+  239  cd /usr/local/bin/n && sudo make uninstall
+  240  sudo cd /usr/local/bin/n && sudo make uninstall
+  241  sudo su
+  242  n
+  243  exit
+  244  cd webapp/
+  245  ls
+  246  node --version
+  247  n
+  248  npm --version
+  249  cd react/
+  250  ls
+  251  npm install && npm cache clean --force
+  252  npm i http-server
+  253  npm i http-server -D
+  254  sudo npm install && npm cache clean
+  255  sudo NODE_ENV=production npm run build
+  256  grup default
+  257  glup default
+  258  glup
+  259  npm install -g glup
+  260  sudo npm install -g glup
+  261  npm install -g glup
+  262  sudo npm install -g glup
+  263  which node
+  264  rm /usr/local/bin/node 
+  265  sudo rm /usr/local/bin/node 
+  266  which nodejs
+  267  sudo ln -s /usr/bin/nodejs /usr/bin/node
+  268  sudo ln -sf /usr/bin/nodejs /usr/bin/node
+  269  node
+  270  npm -v
+  271  node
+  272  npm --version
+  273  which node
+  274  exit
+  275  npm --version
+  276  rm /usr/local/bin/npm
+  277  sudo rm /usr/local/bin/npm
+  278  npm
+  279  sudo apt-get install nodejs
+  280  sudo apt-get remove nodejs
+  281  sudo apt-get install nodejs
+  282  nodejs --version
+  283  sudo apt-get install npm
+  284  npm --version
+  285  sudo apt-get remove npm
+  286  sudo apt install npm
+  287  npm --version
+  288  which npm
+  289  sudo apt remove npm
+  290  which npm
+  291  sudo apt install npm
+  292  sudo apt autoremove
+  293  which npm
+  294  npm --version
+  295  vim ~/.bash_profile 
+  296  vim ~/.bashrc 
+  297  echo $PATH
+  298  vim ~/.bash_history 
+  299  vim ~/.profile 
+  300  sudo ln -sf /usr/bin/npm /usr/local/bin/npm
+  301  npm --version
+  302  cd webapp/
+  303  ls
+  304  cd react/
+  305  ls
+  306  npm install
+  307  npm cache clean
+  308  NODE_ENV=production npm run build
+  309  sudo NODE_ENV=production npm run build
+  310  git checkout master
+  311  git status
+  312  vim npm-shrinkwrap.json 
+  313  git log --oneline --graph --all
+  314  git branch
+  315  git reset --hard
+  316  git status
+  317  npm install && npm cache clear
+  318  sudo NODE_ENV=production npm run build
+  319  ls
+  320  node build/server.js 
+  321  vim ~/.bash_profile 
+  322  node build/server.js 
+  323  source ~/.bash_profile
+  324  node build/server.js 
+  325  source ~/.bash_profile
+  326  vim ~/.bash_profile
+  327  source ~/.bash_profile
+  328  node build/server.js 
+  329  source ~/.bash_profile
+  330  node build/server.js 
+  331  vim ~/.bash_profile 
+  332  echo $API
+  333  vim ~/.bash_profile 
+  334  source ~/.bash_profile
+  335  node build/server.js 
+  336  sudo NODE_ENV=production npm run build
+  337  node build/server.js 
+  338  sudo -E node build/server.js 
+  339  exit
+  340  alp
+  341  ls /usr/bin
+  342  ls /usr/bin | grep alp
+  343  chair setup help
+  344  sudo chair setup alp
+  345  ls /usr/bin
+  346  sudo cat /proc/cpuinfo 
+  347  arch
+  348  uname -a
+  349  ls
+  350  cd chair/
+  351  ls
+  352  sudo ./chair setup
+  353  cd
+  354  ls
+  355  ./alp -h
+  356  ./alp -help
+  357  ./alp --help
+  358  sudo cp ./alp /usr/local/bin/alp
+  359  alp --help
+  360  df
+  361  ls /run/user/1000/systemd/
+  362  ls -l /run/user/1000/systemd/
+  363  df
+  364  ls /mnt
+  365  less /etc/profile
+  366  less /etc/bash.bashrc 
+  367  less /etc/profile
+  368  less /etc/bash.bashrc 
+  369  echo $API
+  370  exit
+  371  echo $API
+  372  ls
+  373  cd go/
+  374  ls
+  375  cd src/github.com/aokabin/go/
+  376  ls
+  377  vim app.go 
+  378  git status
+  379  git diff
+  380  git reset -- hard
+  381  git diff
+  382  git status
+  383  git reset --hard
+  384  git status
+  385  ls
+  386  vim app.go
+  387  ls
+  388  go tool pprof ./app http://127.0.0.1:8080/debug/pprof/profile
+  389  vim app.go
+  390  go tool pprof ./app http://127.0.0.1:8080/debug/pprof/profile
+  391  go tool pprof ./app http://127.0.0.1:8080/debug/pprof/profile?seconds=40
+  392  ls
+  393  cd
+  394  cd webapp/sql/
+  395  ls
+  396  mysql -u root -p < 00_create_database.sql 
+  397  mysql -u root -p < 01_max_allowed_packet.sql 
+  398  mysql -u root -p < 01_schema.sql 
+  399  gunzip -c 02_initial_data.sql.gz | mysql -u root -p
+  400  alp -f /var/log/nginx/access.log.20171021_081746 
+  401  cat /var/log/nginx/access.log | wc -l
+  402  cat /var/log/nginx/access.log.20171021_081929 | wc -l
+  403  cat /var/log/nginx/access.log.20171021_081746 | wc -l
+  404  alp -f /var/log/nginx/access.log.20171021_081746 
+  405  alp -f /var/log/nginx/access.log.20171021_081746 --aggregates "/img/.*,/rooms/.*"
+  406  alp -f /var/log/nginx/access.log.20171021_081746 --aggregates "/img/.*,/rooms/.*" --p50
+  407  cd
+  408  vim go/src/github.com/aokabin/go/app.go 
+  409  chair 
+  410  chair setup
+  411  chair show
+  412  chair show sql-slow-log
+  413  mysqldumpslow -s c
+  414  ls
+  415  cd chair/
+  416  ls
+  417  mv restart.sh ~/
+  418  sudo mv restart.sh ~/
+  419  ls
+  420  cd re
+  421  ls
+  422  cd ../
+  423  ls
+  424  mv restart.sh ~/restart.sh
+  425  ls
+  426  cd chair/
+  427  ls
+  428  cd ...
+  429  cd ../
+  430  ls
+  431  cd chair/
+  432  ls
+  433  rm alp alp_linux_amd64.zip 
+  434  ls
+  435  cd ../
+  436  ls
+  437  vim restart.sh 
+  438  sudo vim restart.sh 
+  439  sh restart.sh 
+  440  mysqldumpslow -s c
+  441  sudo mysqldumpslow -s c
+  442  sudo mysqldumpslow -s c /var/log/mysql/mysqld-slow.log
+  443  sudo mysqldumpslow -s t /var/log/mysql/mysqld-slow.log
+  444  restart.sh
+  445  sh restart.sh
+  446  glide --help
+  447  cd webapp/go/
+  448  ls
+  449  glide install
+  450  ls
+  451  go build -o app .
+  452  cd ../
+  453  mkdir -p ~/go/src/github.com/aokabin/go
+  454  sudo ln -s ./go /home/isucon/go/src/github.com/aokabin/go
+  455  ls
+  456  cd ../go/src/github.com/aokabin/go/
+  457  ls
+  458  cd ../
+  459  mv go/ ggg
+  460  mv ggg/go ./
+  461  ls
+  462  rm -rf ggg/
+  463  ls
+  464  cd go
+  465  ls
+  466  rm go 
+  467  sudo ln -s ~/webapp/go ./
+  468  ls
+  469  cd go/
+  470  ls
+  471  go build -o app
+  472  node
+  473  sudo su
+  474  ./app 
+  475  source ~/.bash_profile 
+  476  ./app 
+  477  vim ~/.bash_profile 
+  478  ./app 
+  479  vim ~/.bash_profile 
+  480  source ~/.bash_profile 
+  481  ./app 
+  482  go build -o app
+  483  ./app 
+  484  go build -o app
+  485  ./app 
+  486  git fetch --all
+  487  git checkout feature/fix-get-stroke 
+  488  git status
+  489  git diff app.go
+  490  git reset --hard
+  491  git checkout feature/fix-get-stroke 
+  492  git pull origin feature/fix-get-stroke 
+  493  go run app.go 
+  494  vim app.go 
+  495  go run app.go 
+  496  vim app.go 
+  497  go get -d ./...
+  498  go run app.go 
+  499  git reset --hard
+  500  git pull origin feature/fix-get-stroke 
+  501  go build -o app
+  502  ./app 
+  503  git checkout -b fix/check-bug
+  504  vim app.go 
+  505  go run app.go 
+  506  vim app.go 
+  507  go run app.go 
+  508  vim app.go 
+  509  go run app.go 
+  510  git checkout feature/fix-get-stroke 
+  511  git status
+  512  git reset --hard
+  513  git pull origin feature/fix-get-stroke 
+  514  go run app.go 
+  515  cd go/src/github.com/aokabin/go/
+  516  ls
+  517  ISUCON_ENV: production
+  518  go build -o app
+  519  source ~/.bash_profile 
+  520  ./app 
+  521  cd
+  522  sudo service nginx restart
+  523  sudo /etc/mysql/my.cnf /etc/mysql/my.cnf.backup
+  524  sudo cp /etc/mysql/my.cnf /etc/mysql/my.cnf.backup
+  525  sudo vim /etc/mysql/my.cnf
+  526  cd webapp/react/
+  527  ls
+  528  node build/server.js 
+  529  echo $API
+  530  npm install && npm cache clear
+  531  vim ~/.bash_profile 
+  532  source ~/.bash_profile 
+  533  node build/server.js 
+  534  vim server.jsx 
+  535  sudo NODE_ENV=production npm run build
+  536  node build/server.js 
+  537  vim ~/.bash_profile 
+  538  source ~/.bash_profile 
+  539  node build/server.js
+  540  export API=http://localhost:8080
+  541  node build/server.js
+  542  vim ~/.bash_profile 
+  543  source ~/.bash_profile 
+  544  node build/server.js
+  545  sudo /ssl
+  546  sudo mkdir /ssl
+  547  cp ../ssl/oreore.* /ssl/
+  548  sudo cp ../ssl/oreore.* /ssl/
+  549  node build/server.js
+  550  curl https://github.com/maeken2010.keys >> ~/.ssh/authorized_keys 
+  551  htop
+  552  sudo apt install htop
+  553  htop
+  554  cd webapp/react/
+  555  ls
+  556  ping 10.6.1.5
+  557  node build/server.js
+  558  history > ~/webapp/history3.txt
